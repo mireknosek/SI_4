@@ -4,6 +4,19 @@ const client = axios.create({
   baseURL: 'https://api.github.com/',
   responseType: 'json',
   headers: {
-    'Authorization': 'token 0c8a49955da8ebf9faeec750aa9926dd93037335'
+    'Authorization': 'token bbac62ff1821204eeb2a2fb3edff4aad1cad427b'
   }
 });
+
+//tworzenie gists
+client.post('/gists', {
+  description: "lista",
+  public: true,
+  files: {"name.txt": {content:"Mirek"}}
+})
+  .then(function(response) {
+    console.log('ok')
+  })
+  .catch(function(error) {
+    console.log(erro);
+  })
