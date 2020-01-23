@@ -4,15 +4,15 @@ const client = axios.create({
   baseURL: 'https://api.github.com/',
   responseType: 'json',
   headers: {
-    'Authorization': 'token 1993c2488193763e68d97604375743c2631c1677'
+    'Authorization': 'token 2545a5d013008787faf875e6350be124ca8fba0f'
   }
 });
 
-//commits
-client.get('gists/8623a2538b342052dc7859501d8176cf/commits')
+//delete gists
+client.delete('/gists/8623a2538b342052dc7859501d8176cf')
 .then(function(response){
   console.log(response)
- })
- .catch(function(error){
-   console.log("error")
- })
+})
+.catch(function(error){
+  console.log("error")
+})
