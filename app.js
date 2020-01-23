@@ -4,21 +4,15 @@ const client = axios.create({
   baseURL: 'https://api.github.com/',
   responseType: 'json',
   headers: {
-    'Authorization': 'token fcba21c1ee86dc15bf7fc2bd1a06ce96f0a73905'
+    'Authorization': 'token 1993c2488193763e68d97604375743c2631c1677'
   }
 });
 
-//edycja gists
- client.patch('/gists/8623a2538b342052dc7859501d8176cf',{
-    "description": "lista",
-    "files": {
-        "name.txt": {
-        "content": "Mirek Nosek"
-    }}
-  })
-  .then(function(response) {
-    console.log(response.data)
-  })
-  .catch(function(error){
-    console.log("error patch")
-  })
+//commits
+client.get('gists/8623a2538b342052dc7859501d8176cf/commits')
+.then(function(response){
+  console.log(response)
+ })
+ .catch(function(error){
+   console.log("error")
+ })
